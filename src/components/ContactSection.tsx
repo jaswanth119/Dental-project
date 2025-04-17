@@ -35,12 +35,12 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Get in Touch</h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 px-4">
             We're here to help. Contact us through any of these channels.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 px-4">
           {contactInfo.map((info, index) => (
             <motion.div
               key={info.title}
@@ -48,16 +48,16 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow h-full"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-3">
                   {info.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
                   {info.title}
                 </h3>
-                <div className="space-y-1">
+                <div className="space-y-1 text-sm md:text-base">
                   {info.details.map((detail, i) => (
                     <p key={i} className="text-gray-600">
                       {detail}
@@ -69,7 +69,7 @@ export default function ContactSection() {
                     href={info.action}
                     target={info.action.startsWith('http') ? '_blank' : undefined}
                     rel={info.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="mt-4 text-blue-600 hover:text-blue-700 font-medium"
+                    className="mt-3 text-blue-600 hover:text-blue-700 font-medium text-sm md:text-base inline-block"
                   >
                     {info.title === 'Phone' && 'Call Now'}
                     {info.title === 'Email' && 'Send Email'}

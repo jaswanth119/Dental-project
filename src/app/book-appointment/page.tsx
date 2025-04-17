@@ -53,7 +53,7 @@ export default function BookAppointmentPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative h-[300px] bg-blue-600">
+      <div className="relative h-[200px] md:h-[300px] bg-blue-600">
         <div className="absolute inset-0 overflow-hidden">
           {/* Animated Background Elements */}
           <div className="absolute inset-0">
@@ -95,14 +95,14 @@ export default function BookAppointmentPage() {
         </div>
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Book an Appointment</h1>
-            <p className="text-xl text-blue-100">Schedule your visit with our expert dental team</p>
+            <h1 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 px-4">Book an Appointment</h1>
+            <p className="text-lg md:text-xl text-blue-100 px-4">Schedule your visit with our expert dental team</p>
           </div>
         </div>
       </div>
 
       {/* Appointment Form Section */}
-      <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto px-4 py-8 md:py-16">
         {/* Background Decorative Elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-0 left-0 w-96 h-96 bg-blue-50 rounded-full mix-blend-multiply blur-3xl opacity-70 animate-blob"></div>
@@ -136,10 +136,8 @@ export default function BookAppointmentPage() {
           }
         `}</style>
 
-        <div className="relative bg-white rounded-2xl shadow-xl p-8">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white rounded-2xl"></div>
-          
-          <div className="relative">
+        <div className="relative bg-white shadow-xl rounded-2xl overflow-hidden">
+          <div className="p-4 md:p-8">
             {/* Success Overlay */}
             <AnimatePresence>
               {isSuccess && (
@@ -149,28 +147,23 @@ export default function BookAppointmentPage() {
                   exit={{ opacity: 0 }}
                   className="absolute inset-0 flex items-center justify-center bg-white/95 backdrop-blur-sm z-10 rounded-2xl"
                 >
-                  <div className="text-center">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 200 }}
-                      className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4"
-                    >
+                  <div className="text-center p-4">
+                    <div className="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
                       <FaCheck className="w-8 h-8 text-green-600" />
-                    </motion.div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Appointment Booked!</h3>
-                    <p className="text-gray-600">We'll contact you shortly to confirm your appointment.</p>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Appointment Booked!</h3>
+                    <p className="text-gray-600 text-sm md:text-base">We'll contact you shortly to confirm your appointment.</p>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
 
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               {/* Two Columns Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {/* Name */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
                     Name <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
@@ -184,24 +177,21 @@ export default function BookAppointmentPage() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900"
-                      placeholder="Your full name"
+                      className="block w-full pl-10 pr-3 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
+                      placeholder="Your name"
                     />
                   </div>
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
                     Phone <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <FaPhone className="h-5 w-5 text-gray-400" />
                     </div>
-                    <span className="absolute inset-y-0 left-8 pl-3 flex items-center pointer-events-none text-gray-500">
-                      +91
-                    </span>
                     <input
                       type="tel"
                       id="phone"
@@ -209,7 +199,7 @@ export default function BookAppointmentPage() {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      className="block w-full pl-20 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      className="block w-full pl-10 pr-3 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
                       placeholder="Your phone number"
                     />
                   </div>
@@ -217,7 +207,7 @@ export default function BookAppointmentPage() {
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
                     Email <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
@@ -231,7 +221,7 @@ export default function BookAppointmentPage() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      className="block w-full pl-10 pr-3 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
                       placeholder="Your email"
                     />
                   </div>
@@ -239,7 +229,7 @@ export default function BookAppointmentPage() {
 
                 {/* Service */}
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
                     Service <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
@@ -252,24 +242,21 @@ export default function BookAppointmentPage() {
                       required
                       value={formData.service}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      className="block w-full pl-10 pr-3 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base appearance-none"
                     >
                       <option value="">Select a service</option>
-                      <option value="general">General Checkup</option>
-                      <option value="cleaning">Teeth Cleaning</option>
-                      <option value="xray">Digital X-Ray</option>
-                      <option value="filling">Dental Filling</option>
-                      <option value="root-canal">Root Canal</option>
+                      <option value="general">General Dentistry</option>
+                      <option value="cosmetic">Cosmetic Dentistry</option>
+                      <option value="orthodontics">Orthodontics</option>
                       <option value="implants">Dental Implants</option>
-                      <option value="emergency">Emergency Care</option>
                     </select>
                   </div>
                 </div>
 
                 {/* Date */}
                 <div>
-                  <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-2">
-                    Date <span className="text-red-500">*</span>
+                  <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
+                    Preferred Date <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -283,15 +270,15 @@ export default function BookAppointmentPage() {
                       value={formData.date}
                       onChange={handleChange}
                       min={new Date().toISOString().split('T')[0]}
-                      className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      className="block w-full pl-10 pr-3 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
                     />
                   </div>
                 </div>
 
                 {/* Time */}
                 <div>
-                  <label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-2">
-                    Time <span className="text-red-500">*</span>
+                  <label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
+                    Preferred Time <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -303,7 +290,7 @@ export default function BookAppointmentPage() {
                       required
                       value={formData.time}
                       onChange={handleChange}
-                      className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                      className="block w-full pl-10 pr-3 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base appearance-none"
                     >
                       <option value="">Select a time</option>
                       <option value="09:00">09:00 AM</option>
@@ -314,6 +301,8 @@ export default function BookAppointmentPage() {
                       <option value="15:00">03:00 PM</option>
                       <option value="16:00">04:00 PM</option>
                       <option value="17:00">05:00 PM</option>
+                      <option value="18:00">06:00 PM</option>
+                      <option value="19:00">07:00 PM</option>
                     </select>
                   </div>
                 </div>
@@ -321,11 +310,11 @@ export default function BookAppointmentPage() {
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1 md:mb-2">
                   Additional Notes
                 </label>
                 <div className="relative">
-                  <div className="absolute top-3 left-3 pointer-events-none">
+                  <div className="absolute top-3 left-0 pl-3 flex items-start pointer-events-none">
                     <FaComments className="h-5 w-5 text-gray-400" />
                   </div>
                   <textarea
@@ -334,39 +323,21 @@ export default function BookAppointmentPage() {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900"
-                    placeholder="Any specific concerns or requirements..."
-                  ></textarea>
+                    className="block w-full pl-10 pr-3 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm md:text-base"
+                    placeholder="Any specific concerns or requests?"
+                  />
                 </div>
               </div>
 
-              {/* Submit Button */}
-              <div className="flex justify-center">
+              <div className="flex justify-center pt-4">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`max-w-md px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-                    isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
-                  }`}
+                  className="w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Booking...
-                    </>
-                  ) : (
-                    'Book Appointment'
-                  )}
+                  {isSubmitting ? 'Submitting...' : 'Book Appointment'}
                 </button>
               </div>
-
-              {/* Terms */}
-              <p className="text-center text-gray-500 text-sm">
-                By booking an appointment, you agree to our terms and conditions.
-              </p>
             </form>
           </div>
         </div>
