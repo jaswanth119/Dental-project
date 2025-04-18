@@ -12,6 +12,7 @@ export default function TeamPage() {
       role: 'PROSTHODONTIST & IMPLANT Spl.',
       position: 'Chairman',
       description: 'Prosthodontist, implantologist and general dentist having 5 yrs of experience in treating complex cases involving both jaws',
+      image: '/images/dr-gopi-krishna.jpg'
     },
     {
       name: 'Dr. K.Lakshmi Sowmya',
@@ -19,6 +20,7 @@ export default function TeamPage() {
       role: 'PERIDONTIST & IMPLANT Spl.',
       position: 'Director',
       description: 'Periodontist, Implantologist, diploma in clinical endodontics having 5 yrs of experience in treatinjg complex periodontal cases…',
+      image: '/images/dr-lakshmi-sowmya.jpg'
     },
     {
       name: 'Dr.K.Anupam',
@@ -26,6 +28,7 @@ export default function TeamPage() {
       role: 'ORAL SURGEON',
       position: '',
       description: 'Good experience on minor oral surgical procedures like impactions, trauma..',
+      image: '/images/dr-anupam.jpg'
     },
     {
       name: 'Dr. Madhu Bhaskar.B',
@@ -33,6 +36,7 @@ export default function TeamPage() {
       role: 'ORTHODONTIST',
       position: '',
       description: 'More than 5 years of experience in treating complex orthodontic cases…',
+      image: '/images/dr-madhu-bhaskar.jpg'
     },
     {
       name: 'Dr. Harika',
@@ -40,6 +44,7 @@ export default function TeamPage() {
       role: 'PEDODONTIST',
       position: '',
       description: 'More than 10 years of experience in preventice and interceptive child dentistry',
+      image: '/images/dr-harika.jpg'
     },
     {
       name: 'Dr. Chinmay',
@@ -47,6 +52,7 @@ export default function TeamPage() {
       role: 'ENDODONTIST',
       position: '',
       description: 'Good and experienced endodontist specialized in endodontic surgeries',
+      image: '/images/dr-chinmay.jpg'
     },
   ];
 
@@ -172,12 +178,24 @@ export default function TeamPage() {
                 className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all hover:scale-105 hover:bg-white/90"
               >
                 <div className="p-8 flex flex-col items-center bg-gradient-to-br from-blue-50/80 via-white/80 to-blue-50/80">
-                  <div className="relative w-24 h-24 mb-4 group">
-                    <div className="absolute inset-0 bg-blue-200 rounded-full animate-pulse group-hover:bg-blue-300 transition-colors"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <FaTooth className="w-12 h-12 text-blue-600 group-hover:text-blue-700 transition-colors" />
+                  {member.image ? (
+                    <div className="relative w-48 h-48 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 192px, 192px"
+                      />
                     </div>
-                  </div>
+                  ) : (
+                    <div className="relative w-48 h-48 mb-4 group">
+                      <div className="absolute inset-0 bg-blue-200 rounded-lg animate-pulse group-hover:bg-blue-300 transition-colors"></div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <FaTooth className="w-12 h-12 text-blue-600 group-hover:text-blue-700 transition-colors" />
+                      </div>
+                    </div>
+                  )}
                   <div className="flex items-center gap-2">
                     <FaStethoscope className="w-5 h-5 text-blue-600" />
                     <span className="text-blue-600 font-medium">Specialist</span>

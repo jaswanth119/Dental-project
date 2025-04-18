@@ -20,31 +20,31 @@ export default function Home() {
       icon: <FaTeeth className="w-12 h-12" />,
       title: 'Preventive Dental Care',
       description: 'Comprehensive check-ups, professional cleanings, fluoride treatments, and dental sealants to prevent cavities and maintain optimal oral health.',
-      image: '/images/preventive-care.jpg',
+      image: '/images/service-preventive-care.jpg',
     },
     {
       icon: <FaMicroscope className="w-12 h-12" />,
       title: 'Advanced Digital X-Rays',
       description: 'State-of-the-art digital radiography system providing instant, high-resolution images with minimal radiation exposure. Enables precise diagnosis and treatment planning.',
-      image: 'https://img.freepik.com/free-photo/modern-dental-x-ray-machine-dentist-s-office_157027-1569.jpg',
+      image: '/images/service-digital-xray.jpg',
     },
     {
       icon: <FaUserMd className="w-12 h-12" />,
       title: 'Root Canal Treatment',
       description: 'Painless and precise endodontic procedures using modern techniques to save your natural teeth and relieve dental pain.',
-      image: '/images/root-canal.jpg',
+      image: '/images/service-root-canal.jpg',
     },
     {
       icon: <FaSmile className="w-12 h-12" />,
       title: 'Cosmetic Dentistry',
       description: 'Transform your smile with teeth whitening, veneers, and cosmetic bonding procedures for a confident, beautiful appearance.',
-      image: '/images/cosmetic.jpg',
+      image: '/images/service-cosmetic.jpg',
     },
     {
       icon: <FaTooth className="w-12 h-12" />,
       title: 'Dental Implants',
       description: 'Permanent tooth replacement solutions using premium quality implants for a natural look and restored dental function.',
-      image: '/images/implants.jpg',
+      image: '/images/service-implants.jpg',
     },
     {
       icon: <FaClinicMedical className="w-12 h-12" />,
@@ -152,7 +152,7 @@ export default function Home() {
                 variants={itemVariants}
                 className="group relative overflow-hidden rounded-xl bg-white shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-[280px] overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -163,26 +163,26 @@ export default function Home() {
                       target.src = "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80";
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 30%, transparent 100%)' }} />
+                  <div className="absolute bottom-6 left-0 right-0 px-6">
                     <div className="flex items-center gap-3">
-                      <div className="text-white bg-blue-600/90 p-2 rounded-lg shadow-lg">
+                      <div className="text-white bg-blue-600/90 p-3 rounded-lg shadow-lg backdrop-blur-sm">
                         {service.icon}
                       </div>
-                      <h3 className="text-xl font-bold text-white drop-shadow-lg">
+                      <h3 className="text-2xl font-bold text-white drop-shadow-md">
                         {service.title}
                       </h3>
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                <div className="p-6 bg-white">
+                  <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
                   <Link
                     href="/services"
-                    className="inline-flex items-center gap-2 mt-4 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                    className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
                   >
                     Learn More
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>

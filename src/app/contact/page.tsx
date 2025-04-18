@@ -30,8 +30,8 @@ export default function ContactPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Contact Us
               </h1>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                We're here to help! Reach out to us through any of the channels below.
+              <p className="text-gray-600 mb-4">
+                We&apos;re here to help! Send us a message and we&apos;ll get back to you as soon as possible.
               </p>
             </motion.div>
           </div>

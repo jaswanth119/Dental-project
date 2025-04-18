@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaCalendarAlt, FaClock, FaUser, FaPhone, FaEnvelope, FaComments, FaTooth, FaCheck } from 'react-icons/fa';
 import Image from 'next/image';
 
@@ -83,20 +83,18 @@ export default function BookAppointmentPage() {
             </div>
             
             {/* Success Message */}
-            <AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={isSuccess ? { opacity: 1, y: 0 } : { opacity: 0 }}
+              exit={{ opacity: 0 }}
+              className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg"
+            >
               {isSuccess && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg"
-                >
-                  <p className="text-green-800 text-center">
-                    Your appointment has been successfully booked! We will contact you shortly to confirm.
-                  </p>
-                </motion.div>
+                <p className="text-green-800 text-center">
+                  Your appointment has been successfully booked! We will contact you shortly to confirm.
+                </p>
               )}
-            </AnimatePresence>
+            </motion.div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Two Columns Grid */}
