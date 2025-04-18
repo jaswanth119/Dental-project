@@ -17,6 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#ffffff" />
+      </head>
       <body className={inter.className}>
         <Navbar />
         <main>{children}</main>

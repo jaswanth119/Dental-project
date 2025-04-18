@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "dental-42609"
-  }
+  },
+  "targets": {
+    "dental-42609": {
+      "hosting": {
+        "surakshadentalhospvnk": [
+          "surakshadentalhospvnk"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

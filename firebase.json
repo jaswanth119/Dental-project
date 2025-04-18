@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "surakshadentalhospvnk",
     "public": "out",
     "ignore": [
       "firebase.json",
@@ -24,11 +25,31 @@
       {
         "source": "/team",
         "destination": "/team.html"
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
       }
-    ]
+    ],
+    "redirects": [{
+      "source": "dental-42609.web.app/**",
+      "destination": "https://surakshadentalhospvnk.web.app/:splat",
+      "type": 301
+    }]
+  },
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs18"
+  },
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4000
+    }
   }
 }
